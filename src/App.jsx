@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import {Suspense} from "react";
 import "./App.css";
 import Countries from "./Countries";
 
@@ -8,13 +8,21 @@ const FetchPromise = async () => {
 };
 
 function App() {
+  const FetchPromiseInApp = FetchPromise();
 
-  const FetchPromiseInApp= FetchPromise()
-
-  
   return (
     <>
-      <Suspense fallback={<h2 className="border-2 border-red-600 flex justify-center"> loding data.... </h2>}> <Countries FetchPromiseInApp={FetchPromiseInApp}> </Countries></Suspense>
+      <Suspense
+        fallback={
+          <h2 className="border-2 border-red-600 flex justify-center">
+            {" "}
+            loding data....{" "}
+          </h2>
+        }
+      >
+        {" "}
+        <Countries FetchPromiseInApp={FetchPromiseInApp}> </Countries>
+      </Suspense>
     </>
   );
 }

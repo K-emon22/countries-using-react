@@ -4,10 +4,12 @@ const Countries = ({FetchPromiseInApp}) => {
   const CountriesDetails = use(FetchPromiseInApp);
   const [count, setcount] = useState([]);
   const VisitedWorldCount = (Countrie) => {
+    const newcount = [...count, Countrie];
+    setcount(newcount);
 
-    const newcount=[...count,Countrie]
-    setcount(newcount)
 
+    
+    
   };
 
   return (
@@ -16,7 +18,6 @@ const Countries = ({FetchPromiseInApp}) => {
         {CountriesDetails.length} Countries of this World.
       </h1>
       <h2 className="flex justify-center font-bold text-2xl mt-3 ">
-
         Total visited countries: {count.length}
       </h2>
       <div className="grid grid-cols-3 gap-10 mt-10">
@@ -61,6 +62,7 @@ const CountriesData = ({Detais, VisitedWorldCount}) => {
           <span className="font-bold"> Population:</span> {Detais.population}{" "}
         </h1>
         <button
+          id="button"
           onClick={HandleVisited}
           className={` font-bold bg-blue-500 w-3/12 mt-auto text-white py-1 px-1 rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out ${
             visit && "bg-gray-500"
